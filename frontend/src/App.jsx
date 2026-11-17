@@ -1,7 +1,10 @@
+import Intro from "./exercises/Daisy10688/Intro";
 
 function App() {
   return (
-    <h1>CommunityHub</h1>
+    <div>
+      <Intro />
+    </div>
   );
 }
 
