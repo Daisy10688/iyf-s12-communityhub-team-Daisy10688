@@ -1,5 +1,5 @@
 function Intro() {
-  const name = "Daisy";
+  const name = "Daisy Awuor";
   const currentDate = new Date().toLocaleDateString();
   const currentHour = new Date().getHours();
 
