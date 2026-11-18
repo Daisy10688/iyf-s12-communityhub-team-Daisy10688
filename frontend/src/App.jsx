@@ -1,11 +1,7 @@
-import Intro from "./exercises/Daisy10688/Intro";
+import Intro from "./exercises/Syanda2020/Intro";
 
 function App() {
-  return (
-    <div>
-      <Intro />
-    </div>
-  );
+  return <Intro />
 }
 
-export default App;
+export default App
