@@ -4,6 +4,7 @@ import Counter from "./exercises/Daisy10688/Counter";
 import Toggle from "./exercises/Daisy10688/Toggle";
 import UserForm from "./exercises/Daisy10688/UserForm";
 import SharedLikes from "./exercises/Daisy10688/SharedLikes";
+import DaisyIntro from "./exercises/Daisy10688/Intro";
 function App() {
   return (
     <div>
@@ -13,6 +14,8 @@ function App() {
       <Toggle/>
       <UserForm/>
       <SharedLikes/>  
+     <DaisyIntro />
+
     </div>
   );
 }
