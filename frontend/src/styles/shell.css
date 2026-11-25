@@ -1,0 +1,40 @@
+/* App shell styles. Colors are variables so Caroline can restyle in one place. */
+:root {
+  --mc-plum: #5b2a4e;
+  --mc-plum-dark: #3f1b36;
+  --mc-blush: #fbeef2;
+  --mc-sage: #6f8f7b;
+  --mc-ink: #2b2230;
+  --mc-white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--mc-ink); background: var(--mc-blush); line-height: 1.5; }
+
+.shell { min-height: 100vh; display: flex; flex-direction: column; }
+.shell-main { flex: 1; width: 100%; max-width: 44rem; margin: 0 auto; padding: 1.25rem 1rem 2rem; }
+.shell-footer { padding: 1rem; text-align: center; font-size: 0.875rem; color: var(--mc-plum); }
+
+.shell-skip { position: absolute; left: -999px; top: 0; background: var(--mc-white); padding: 0.5rem 1rem; z-index: 20; }
+.shell-skip:focus { left: 0; }
+
+.shell-header { background: var(--mc-plum); position: sticky; top: 0; z-index: 10; }
+.shell-nav { max-width: 44rem; margin: 0 auto; padding: 0.5rem 1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.shell-brand { color: var(--mc-white); font-size: 1.25rem; font-weight: 700; text-decoration: none; }
+
+.shell-toggle { background: transparent; color: var(--mc-white); border: 1px solid var(--mc-white); border-radius: 0.5rem; min-height: 44px; padding: 0 1rem; font: inherit; cursor: pointer; }
+
+.shell-menu { list-style: none; margin: 0; padding: 0; width: 100%; display: none; flex-direction: column; }
+.shell-menu--open { display: flex; padding-bottom: 0.5rem; }
+
+.shell-link { display: flex; align-items: center; min-height: 44px; padding: 0 0.75rem; color: var(--mc-white); text-decoration: none; background: none; border: 0; font: inherit; cursor: pointer; border-radius: 0.5rem; width: 100%; text-align: left; }
+.shell-link:hover { background: var(--mc-plum-dark); }
+.shell-link--active { background: var(--mc-plum-dark); font-weight: 600; }
+
+.shell-toggle:focus-visible, .shell-link:focus-visible, .shell-brand:focus-visible { outline: 3px solid var(--mc-white); outline-offset: 2px; }
+
+@media (min-width: 640px) {
+  .shell-toggle { display: none; }
+  .shell-menu, .shell-menu--open { display: flex; flex-direction: row; width: auto; gap: 0.25rem; padding: 0; }
+  .shell-link { width: auto; }
+}
