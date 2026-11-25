@@ -3,13 +3,14 @@ const STATUSES = ['pregnant', 'new mother', 'experienced mother', 'mother of old
 exports.getMe = async (req, res) => {
 
     try{
-        const User = await User.findById(req.user.id).select('name email motherhoodStatus');
+        const user = await User.findById(req.user.id).select('name email motherhoodStatus');
         if (!user) return res.status(404).json({ message: 'User not found'});
         res.json({ name: user.name, email: user.email, motherhoodStatus: user.motherhoodStatus});
         } catch (err) {
     res.status(500).json({ message: 'Server error' });
  }
-};exports.updateMe = async (req, res) => {
+};
+exports.updateMe = async (req, res) => {
   try {
     const { name, email, motherhoodStatus } = req.body;
     const updates = {};
