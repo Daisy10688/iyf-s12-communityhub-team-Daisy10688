@@ -1,4 +1,3 @@
-import "./PostCard.css";
 
 function PostCard({ post, onLike, onDelete }) {
   const date = new Date(post.date).toLocaleDateString("en-US", {
