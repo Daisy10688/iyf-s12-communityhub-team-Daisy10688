@@ -1,0 +1,8 @@
+.todo-text {
+  cursor: pointer;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #999;
+}
