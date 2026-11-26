@@ -1,25 +1,40 @@
-import Greeting from "./exercises/Daisy10688/Greeting";
-import Button from "./exercises/Daisy10688/Button";
-import Counter from "./exercises/Daisy10688/Counter";
-import Toggle from "./exercises/Daisy10688/Toggle";
-import UserForm from "./exercises/Daisy10688/UserForm";
-import SharedLikes from "./exercises/Daisy10688/SharedLikes";
-import DaisyIntro from "./exercises/Daisy10688/Intro";
-import Header from "./components/Header";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Layout";
+import { useAuth } from "./context/AuthContext";
 
-function App() {
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Feed from "./pages/Feed";
+import Exercises from "./pages/Exercises";
+
+// Replace with Daisy's protected-route component once her branch is merged.
+function ProtectedRoute({ children }) {
+  const { user } = useAuth();
+  return user ? children : <Navigate to="/login" replace />;
+}
+
+function NotFound() {
   return (
-    <div>
-      <Header />
-      <Greeting />
-      <Button />
-      <Counter />
-      <Toggle />
-      <UserForm />
-      <SharedLikes />
-      <DaisyIntro />
-    </div>
+    <section>
+      <h1>Page not found</h1>
+      <p>That page doesn't exist. Use the menu to get back to the community.</p>
+    </section>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Navigate to="/feed" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/feed" element={<ProtectedRoute><Feed /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/exercises" element={<Exercises />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
+}
