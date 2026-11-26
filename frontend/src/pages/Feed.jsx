@@ -1,3 +1,4 @@
+import FeedPage from "../components/posts/FeedPage";
 export default function Feed() {
-  return <h1>Feed page (placeholder)</h1>;
+  return <FeedPage />;
 }

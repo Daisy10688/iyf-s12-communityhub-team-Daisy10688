@@ -2,10 +2,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import { useAuth } from "./context/AuthContext";
 
-import Register from "./pages/Register"; // Daisy
-import Login from "./pages/Login";       // Daisy
-import Profile from "./pages/Profile";   // Syanda
-import Feed from "./pages/Feed";         // Faith
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Feed from "./pages/Feed";
+import Exercises from "./pages/Exercises";
 
 // Replace with Daisy's protected-route component once her branch is merged.
 function ProtectedRoute({ children }) {
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/feed" element={<ProtectedRoute><Feed /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/exercises" element={<Exercises />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
