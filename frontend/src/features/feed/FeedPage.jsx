@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPosts, createPost } from "./postsApi";
+import { getPosts, createPost, updatePost, deletePost } from "./postsApi";
 import PostCard from "./PostCard";
 import CreatePost from "./CreatePost";
 
@@ -25,6 +25,16 @@ export default function FeedPage() {
     }
   };
 
+  const handleDelete = async (id) => {
+    await deletePost(id);
+    setPosts(posts.filter((p) => p.id !== id));
+  };
+
+  const handleEdit = async (id, content) => {
+    await updatePost(id, content);
+    setPosts(posts.map((p) => (p.id === id ? { ...p, content } : p)));
+  };
+
   return (
     <div style={{ maxWidth: 600, margin: "0 auto", padding: 16 }}>
       <h2>Community Feed</h2>
@@ -33,7 +43,7 @@ export default function FeedPage() {
       {loading && <p>Loading posts...</p>}
       {!loading && posts.length === 0 && <p>No posts yet, be the first!</p>}
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post.id} post={post} currentUser="You" onDelete={handleDelete} onEdit={handleEdit} />
       ))}
     </div>
   );

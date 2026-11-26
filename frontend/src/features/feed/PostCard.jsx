@@ -9,7 +9,7 @@ function timeAgo(dateString) {
   return `${days} day${days > 1 ? "s" : ""} ago`;
 }
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, currentUser, onDelete, onEdit }) {
   return (
     <div
       style={{
@@ -44,6 +44,12 @@ export default function PostCard({ post }) {
         </div>
       </div>
       <p>{post.content}</p>
+      {post.author === currentUser && (
+        <div style={{ display: "flex", gap: 8 }}>
+          <button onClick={() => { const t = prompt("Edit your post", post.content); if (t && t.trim()) onEdit(post.id, t.trim()); }}>Edit</button>
+          <button onClick={() => onDelete(post.id)}>Delete</button>
+        </div>
+      )}
       {/* Caroline's comments section goes here */}
     </div>
   );
