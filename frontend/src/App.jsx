@@ -5,20 +5,21 @@ import Toggle from "./exercises/Daisy10688/Toggle";
 import UserForm from "./exercises/Daisy10688/UserForm";
 import SharedLikes from "./exercises/Daisy10688/SharedLikes";
 import DaisyIntro from "./exercises/Daisy10688/Intro";
+import Header from "./components/Header";
+
 function App() {
   return (
     <div>
-      <Greeting/>
-      <Button/>
-      <Counter/>
-      <Toggle/>
-      <UserForm/>
-      <SharedLikes/>  
-     <DaisyIntro />
-
+      <Header />
+      <Greeting />
+      <Button />
+      <Counter />
+      <Toggle />
+      <UserForm />
+      <SharedLikes />
+      <DaisyIntro />
     </div>
   );
 }
 
 export default App;
-  
