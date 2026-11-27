@@ -1,9 +1,11 @@
+import { useAuth } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
 import { getPosts, createPost, updatePost, deletePost } from "./postsApi";
 import PostCard from "./PostCard";
 import CreatePost from "./CreatePost";
 
 export default function FeedPage() {
+  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -18,7 +20,7 @@ export default function FeedPage() {
   const addPost = async (content) => {
     try {
       const newPost = await createPost(content);
-      setPosts([newPost, ...posts]);
+      setPosts([{ ...newPost, author: user?.name || "You" }, ...posts]);
       setError("");
     } catch {
       setError("Could not post, try again.");
@@ -43,7 +45,7 @@ export default function FeedPage() {
       {loading && <p>Loading posts...</p>}
       {!loading && posts.length === 0 && <p>No posts yet, be the first!</p>}
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} currentUser="You" onDelete={handleDelete} onEdit={handleEdit} />
+        <PostCard key={post.id} post={post} currentUser={user?.name || "You"} onDelete={handleDelete} onEdit={handleEdit} />
       ))}
     </div>
   );
