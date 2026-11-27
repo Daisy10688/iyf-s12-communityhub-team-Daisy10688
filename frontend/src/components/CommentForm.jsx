@@ -27,21 +27,17 @@ export default function CommentForm({ postId, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor={inputId} style={{ fontSize: 14 }}>Add a comment</label>
+      <label htmlFor={inputId} className="comment-form__label">Add a comment</label>
       <textarea
         id={inputId}
+        className="comment-form__input"
         value={text}
         onChange={(e) => setText(e.target.value)}
         disabled={submitting}
         rows={2}
-        style={{ display: "block", width: "100%", boxSizing: "border-box", padding: 8, margin: "4px 0", fontSize: 16 }}
       />
-      {error && <p role="alert" style={{ color: "#c92a2a", margin: "4px 0" }}>{error}</p>}
-      <button
-        type="submit"
-        disabled={submitting}
-        style={{ background: "#d6336c", color: "#fff", border: "none", borderRadius: 6, padding: "10px 16px", minHeight: 44, cursor: "pointer" }}
-      >
+      {error && <p role="alert" className="comments__status comments__status--error">{error}</p>}
+      <button type="submit" className="comment-form__button" disabled={submitting}>
         {submitting ? "Posting..." : "Comment"}
       </button>
     </form>

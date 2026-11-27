@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
 import { getComments, createComment } from "./commentsApi";
+import "./comments.css";
 
 export default function CommentSection({ postId }) {
   const { user, isAuthenticated } = useAuth();
@@ -29,12 +30,12 @@ export default function CommentSection({ postId }) {
   }
 
   return (
-    <div style={{ marginTop: 12 }}>
+    <div className="comments">
       <CommentList comments={comments} loading={loading} error={error} />
       {isAuthenticated ? (
         <CommentForm postId={postId} onSubmit={handleAdd} />
       ) : (
-        <p style={{ color: "#777" }}>Log in to join the conversation.</p>
+        <p className="comments__status">Log in to join the conversation.</p>
       )}
     </div>
   );
