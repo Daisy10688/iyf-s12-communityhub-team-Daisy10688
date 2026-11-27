@@ -79,3 +79,15 @@
   .auth-page { padding: 48px 16px; }
   .auth-card { padding: 32px; }
 }
+.auth-card::before {
+  content: "";
+  display: block;
+  height: 160px;
+  margin: -24px -20px 16px;
+  background: url("../assets/mother-baby.svg") center / cover no-repeat;
+  border-radius: 12px 12px 0 0;
+}
+
+@media (min-width: 768px) {
+  .auth-card::before { margin: -32px -32px 16px; }
+}
