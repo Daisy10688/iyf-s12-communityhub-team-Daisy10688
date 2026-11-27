@@ -74,3 +74,23 @@ Status values: Open, Fixed, Won't fix. After the owner fixes a bug, retest it an
 - [ ] No bug is left Open without a decision
 - [ ] Tested on a phone, in a fresh browser session
 - [ ] Live links written in the README
+
+## 8. Test run 1: frontend against a mock API
+
+Date: (add date). Tester: Denis. Environment: local. The API was a throwaway mock server (auth endpoints only), because the real backend is not merged yet. Posts and comments use the frontend's mock data.
+
+| Step | Result | Notes |
+|---|---|---|
+| Register with a new email | Pass (mock server) | |
+| Register with the same email | Pass (mock server) | Error shown |
+| Log in with a wrong password | Pass (mock server) | Error shown |
+| Log in with correct details | Pass (mock server) | |
+| Log out | Pass | |
+| Create a post | Pass (mock data) | Not saved to an API yet |
+| Add a comment | Pass (mock data) | Not saved to an API yet |
+| Refresh while logged in | Not tested | |
+| Profile page | Not tested | |
+| Open /feed while logged out | Not tested | |
+| Open /hello | Not tested | |
+
+Still blocked: real auth endpoints, posts API, comments API, deployment.
