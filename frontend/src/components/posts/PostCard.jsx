@@ -1,3 +1,4 @@
+import CommentSection from "../CommentSection";
 function timeAgo(dateString) {
   const seconds = Math.floor((Date.now() - new Date(dateString)) / 1000);
   if (seconds < 60) return "just now";
@@ -50,7 +51,7 @@ export default function PostCard({ post, currentUser, onDelete, onEdit }) {
           <button onClick={() => onDelete(post.id)}>Delete</button>
         </div>
       )}
-      {/* Caroline's comments section goes here */}
+      <CommentSection postId={post.id} />
     </div>
   );
 }
