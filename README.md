@@ -1,6 +1,7 @@
-# iyf-s12-communityhub-team-Daisy10688
-MamaCare: Maternal and New Mothers Community Platform
 # MamaCare
+
+MamaCare: Maternal and New Mothers Community Platform
+(Repository: iyf-s12-communityhub-team-Daisy10688)
 
 ## Project Overview
 
@@ -33,11 +34,19 @@ MamaCare is a maternal and child health community platform designed to support p
 **Backend**
 - Node.js
 - Express.js
-- MongoDB
+- MongoDB Atlas with Mongoose
 
 ## Project Structure
 
-The project will be organized into separate frontend and backend directories to support modular development and maintainability.
+The project is organized into separate frontend and backend directories to support modular development and maintainability.
+
+- `frontend/` – React + Vite application
+- `backend/` – Express API. See the [backend guide](backend/README.md) for setup, scripts and API details.
+
+## Getting Started
+
+- Backend: follow the [backend setup instructions](backend/README.md).
+- Frontend: see the frontend folder.
 
 ## Team
 
